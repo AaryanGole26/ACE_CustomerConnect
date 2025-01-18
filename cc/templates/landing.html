@@ -1,19 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CustomerConnect</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'landing.css' %}">
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to ACE</h1>
-    </header>
-    <main>
-        <p>This is the landing page.</p>
-    </main>
-    <footer>
-        <p>&copy; 2023 ACE. All rights reserved.</p>
-    </footer>
+  <!-- Intro Animation Section -->
+  <div class="intro-animation">
+    <div class="banner">
+        <div class="title">
+            <h1>CustomerConnect</h1>
+        </div>
+    </div>
+  </div>
+
+  <header>
+  
+    <h1>Welcome to CustomerConnect</h1>
+    <p>Your partner in smarter customer engagement and growth.</p>
+    <div class="buttons">
+      <a href="#about">Learn More</a>
+      <a href="#pricing">Get Started</a>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <div class="about-content">
+        <h2>About Us</h2>
+        <p>CustomerConnect helps businesses with limited marketing knowledge make smarter decisions. With AI-driven ad suggestions, customer clustering, and performance analytics, we simplify marketing so you can focus on growth.</p>
+    </div>
+    <div class="about-image">
+        <img src="{% static '/images/undraw_team-spirit_18vw.png' %}" alt="Marketing Analytics Dashboard">
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <h2>Our Pricing</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Basic</h3>
+        <p>Perfect for small businesses.</p>
+        <p>$19/month</p>
+        <a href="Bdashboard.html">Choose Plan</a>
+      </div>
+      <div class="card">
+        <h3>Pro</h3>
+        <p>Great for growing teams.</p>
+        <p>$49/month</p>
+        <a href="Bdashboard.html">Choose Plan</a>
+      </div>
+      <div class="card">
+        <h3>Enterprise</h3>
+        <p>Custom solutions for large businesses.</p>
+        <p>Contact Us</p>
+        <a href="/du/">Choose Plan</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials-container">
+        <div class="testimonial-card">
+            <div class="testimonial-content">
+                <p class="quote">"CustomerConnect transformed our business! The AI suggestions are spot-on."</p>
+                <p class="author">- Sarah Johnson, Marketing Director</p>
+            </div>
+            <div class="testimonial-image">
+                <img src="{% static '/Images/rb_850.png' %}" alt="Client Testimonial" >
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-content">
+                <p class="quote">"The clustering feature helped us understand our customers better and improve our ads."</p>
+                <p class="author">- Michael Chen, Business Owner</p>
+            </div>
+            <div class="testimonial-image">
+                <img src="{% static '/Images/rb_855.png' %}" alt="Client Testimonial" >
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 CustomerConnect. All rights reserved.</p>
+    <div class="newsletter">
+      <p>Subscribe to our newsletter</p>
+      <input type="email" placeholder="Enter your email">
+      <button>Subscribe</button>
+    </div>
+  </footer>
+
+  <script>
+    // Wait for animation to complete then fade out the intro
+    setTimeout(function() {
+      document.querySelector('.intro-animation').style.animation = 'fadeOut 1s ease-out forwards';
+    }, 4000); // 4 seconds for the animation to complete
+  </script>
 </body>
+
 </html>
