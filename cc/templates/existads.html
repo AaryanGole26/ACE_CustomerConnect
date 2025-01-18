@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ad Analytics</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'existads.css' %}">
+</head>
+<body>
+<div class="background-animation"></div>
+<div class="navbar">
+  <h1>Ad Analytics</h1>
+  <div>
+    <a href="/ACE/ACE/Bdashboard.html">Dashboard</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="upload-section">
+    <h2>Your Existing Ads</h2>
+  </div>
+
+  <div id="ads-container">
+    <ul>
+      {% for cluster_id, ads in ads.items %}
+        <li>
+          <h3>Cluster {{ cluster_id }}</h3>
+          <ul>
+            {% for ad in ads %}
+              <li>{{ ad }}</li> 
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
+
+  <table class="analytics-table">
+    <thead>
+      <tr>
+        <th>Ad Preview</th>
+        <th>Conversion Rate</th>
+        <th>Clicks</th>
+        <th>Ignored</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="adsTable">
+      <!-- Rows will be dynamically added here -->
+    </tbody>
+  </table>
+</div>
+
+<form style="display: none;" id="csrf_form">
+  {% csrf_token %}
+</form>
+
+<script>
+  // Sample ad analytics data
+  const ads = JSON.parse(localStorage.getItem('ads')) || [];
+  const analytics = ads.map((ad, index) => ({
+    id: index,
+    src: ad,
+    conversionRate: `${Math.floor(Math.random() * 100)}%`,
+    clicks: Math.floor(Math.random() * 500),
+    ignored: Math.floor(Math.random() * 200)
+  }));
+
+  const adsTable = document.getElementById('adsTable');
+
+  function deleteAd(id) {
+    if (confirm("Are you sure you want to delete this ad?")) {
+      const updatedAds = analytics.filter(ad => ad.id !== id);
+      localStorage.setItem('ads', JSON.stringify(updatedAds.map(ad => ad.src)));
+      alert('Ad deleted successfully!');
+      renderTable();
+    }
+  }
+
+  function renderTable() {
+    adsTable.innerHTML = '';
+    analytics.forEach(ad => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><img src="${ad.src}" alt="Ad" style="width: 120px; height: auto; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"></td>
+        <td>${ad.conversionRate}</td>
+        <td>${ad.clicks}</td>
+        <td>${ad.ignored}</td>
+        <td><button onclick="deleteAd(${ad.id})">Delete</button></td>
+      `;
+      adsTable.appendChild(row);
+    });
+  }
+
+  // Initial table render
+  renderTable();
+</script>
+</body>
+</html>
