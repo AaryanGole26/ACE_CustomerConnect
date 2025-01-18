@@ -1,6 +1,7 @@
 # ACE_G0026
 # CustomerConnect
 
+![image alt](https://github.com/AaryanGole26/ACE_CustomerConnect/blob/7b7411edb2c3527424a9ea2db4b7c54408b1a7d1/Screenshot%202025-01-18%20082422.png)
 # Overview
 CustomerConnect is an innovative platform designed to simplify marketing and advertising for businesses with little to no prior experience in these fields. It provides tools to create, analyze, and optimize advertising campaigns while leveraging data-driven insights to reach the right audience effectively. By combining a user-friendly interface with machine learning-driven audience segmentation, CustomerConnect empowers businesses to connect with their customers in meaningful ways.
 
