@@ -92,9 +92,6 @@ Contributions are welcome! Please follow these steps:
 
 
 
-
----
-
 ## Contact
 For support or inquiries:
 - Email: support@customerconnect.com
